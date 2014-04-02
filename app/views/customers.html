@@ -12,7 +12,7 @@
         <th ng-click="doSort('joined')" style="width: 100px;">Joined</th>
         <th style="width: 120px;">&nbsp;</th>
     </tr>
-    <tr ng-repeat="cust in customers | filter:customerFilter | orderBy:sortBy:reverse">
+    <tr ng-repeat="cust in customers | filter:customerFilter | orderBy:sortBy:reverse" class="repeat-animation">
           <td><strong>{{ cust.name }}</strong></td>
           <td>{{ cust.city }}</td>
           <td>{{ cust.orderTotal | currency }}</td>
