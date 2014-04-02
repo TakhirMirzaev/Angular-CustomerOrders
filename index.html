@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="no-js">
+<html class="no-js" ng-app="customersApp">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -8,13 +8,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
-
-        <style>
-            body {
-                padding-top: 70px;
-                padding-bottom: 20px;
-            }
-        </style>
+        <link rel="stylesheet" href="/style.css">
     </head>
     <body>
 
@@ -30,6 +24,13 @@
           </button>
           <a class="navbar-brand" href="#">Customer Order App</a>
         </div>
+
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="/#/customers"><span class="glyphicon glyphicon-user"></span> Customers</a></li>
+            <li><a href="/#/orders"><span class="glyphicon glyphicon-shopping-cart"></span> Orders</a></li>
+          </ul>
+        </div>
       </div>
     </div>
 
@@ -37,19 +38,31 @@
       <!-- CONTENT AREA -->
       <div class="row">
         <div class="col-md-12">
-            
-          <h2>Heading</h2>
 
+            <ng-view></ng-view>
+
+        </div>
       </div>
       <!-- END OF CONTENT AREA -->
 
       <footer>
-        <p>&copy; Learning AngularJS 2014</p>
+        <p>&copy; Learning AngularJS 2014. <a href="https://www.udemy.com/angularjs-jumpstart/">View Course</a></p>
       </footer>
 
     </div> <!-- /container -->        
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
+    <script src="/app/lib/angular-resource.min.js"></script>
+    <script src="/app/lib/angular-route.min.js"></script>
+
+    <script src="/app/app.js"></script>
+    <script src="/app/controllers/customersController.js"></script>
+    <script src="/app/controllers/ordersController.js"></script>
+    <script src="/app/services/customersFactory.js"></script>
+    <script src="/app/services/settings.js"></script>
+
+    <!-- Live Reload -->
+    <script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
     </body>
 </html>

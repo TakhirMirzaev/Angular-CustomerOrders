@@ -1,0 +1,24 @@
+<h2>{{ appSettings.title }}</h2>
+
+<div class="well">
+  Filter: <input type="text" ng-model="customerFilter.name" />
+</div>
+
+<table class="table" ng-cloak>
+    <tr>
+        <th ng-click="doSort('name')" style="width: 120px;">Name</th>
+        <th ng-click="doSort('city')" style="width: 150px;">City</th>
+        <th ng-click="doSort('orderTotal')" style="width: 100px;">Order</th>
+        <th ng-click="doSort('joined')" style="width: 100px;">Joined</th>
+        <th style="width: 120px;">&nbsp;</th>
+    </tr>
+    <tr ng-repeat="cust in customers | filter:customerFilter | orderBy:sortBy:reverse">
+          <td><strong>{{ cust.name }}</strong></td>
+          <td>{{ cust.city }}</td>
+          <td>{{ cust.orderTotal | currency }}</td>
+          <td>{{ cust.joined | date }}</td>
+          <td><a href="#/orders/{{ cust.id }}">View Orders</a></td>
+    </tr>
+</table>
+
+<h4>Total Customers: {{ customers.length }}</h4>
